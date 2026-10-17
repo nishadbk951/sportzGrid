@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportzGrid</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark px-3 py-2 mb-4 border-bottom border-secondary border-opacity-25 sticky-top">
+    <div class="container-fluid">
+      
+      <a class="navbar-brand fw-bold text-success" href="#">SportzGrid</a>
+
+      <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sportzGridNavbar" aria-controls="sportzGridNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="sportzGridNavbar">
+        
+        <nav class="d-flex flex-column flex-lg-row align-items-lg-center gap-2 my-3 my-lg-0 mx-lg-auto">
+          <button id="myBookingsBtn" class="btn btn-outline-success btn-sm">My Bookings</button>
+          <button id="favFilterBtn" class="btn btn-outline-danger btn-sm">❤️ Favourites</button>
+          <a href="#aboutSection" class="btn btn-outline-light btn-sm">About Us</a>
+        </nav>
+
+        <div class="user-profile d-flex align-items-center gap-3 pt-2 pt-lg-0 border-top border-lg-0 border-secondary border-opacity-25">
+          <span id="userName" class="text-light fw-semibold small">Welcome,</span>
+          <button id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <section class="controls-section container mb-4">
+    <div class="row g-2 justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <input type="search" id="searchInput" class="form-control" placeholder="Search by turf name or location...">
+      </div>
+      <div class="col-12 col-md-4 col-lg-3">
+        <select id="categoryFilter" class="form-select">
+          <option value="all">All Sports</option>
+          <option value="football">Football</option>
+          <option value="cricket">Cricket</option>
+          <option value="badminton">Badminton</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mb-5">
+    <main id="turfContainer" class="row g-4">
+    </main>
+  </div>
+
+  <section class="container my-5 py-4" id="aboutSection">
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-10">
+        <div class="card bg-dark text-light border border-secondary border-opacity-50 p-4 p-md-5 rounded-3 shadow">
+          
+          <div class="text-center mb-4">
+            <h3 class="text-success fw-bold mb-2">About SportzGrid</h3>
+            <p class="text-secondary small mb-3">Play More, Wait Less — Instant Turf Booking for Modern Athletes.</p>
+            <p class="text-light small mx-auto" style="max-width: 750px;">
+              <strong>SportzGrid</strong> is a dedicated sports venue reservation platform engineered to make booking your match hassle-free. Whether you are organizing a high-paced <strong>Football</strong> match, a competitive <strong>Cricket</strong> clash, or a weekend <strong>Badminton</strong> session, SportzGrid connects you directly with top-rated local arenas in real time.
+            </p>
+          </div>
+
+          <div class="row g-3 mt-2">
+            <div class="col-12 col-md-4">
+              <div class="p-3 rounded-2 border border-secondary border-opacity-25 bg-black bg-opacity-25 h-100">
+                <div class="fs-4 mb-2">⚡</div>
+                <h6 class="text-success fw-semibold">Real-Time Booking</h6>
+                <p class="text-secondary small mb-0">View live slot schedules and lock in your game with instant digital confirmation—no delays, no waiting.</p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="p-3 rounded-2 border border-secondary border-opacity-25 bg-black bg-opacity-25 h-100">
+                <div class="fs-4 mb-2">📍</div>
+                <h6 class="text-success fw-semibold">Multi-Sport Arenas</h6>
+                <p class="text-secondary small mb-0">Easily discover verified courts tailored for football, cricket, and badminton based on your location and budget.</p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="p-3 rounded-2 border border-secondary border-opacity-25 bg-black bg-opacity-25 h-100">
+                <div class="fs-4 mb-2">❤️</div>
+                <h6 class="text-success fw-semibold">Quick Access Wishlist</h6>
+                <p class="text-secondary small mb-0">Bookmark your go-to turfs using the Favourites feature for seamless, one-click future reservations.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="bookingModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <button id="closeBookingModal" class="close-btn">&times;</button>
+      <h3 id="modalTurfName"></h3>
+      
+      <form id="bookingForm">
+        <input type="hidden" id="selectedTurfId">
+
+        <div class="form-group mb-3">
+          <label for="bookingDate" class="form-label">Date:</label>
+          <input type="date" id="bookingDate" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="bookingTime" class="form-label">Time Slot:</label>
+          <select id="bookingTime" class="form-select" required>
+            <option value="">Select Time</option>
+            <option value="06:00 PM - 07:00 PM">06:00 PM - 07:00 PM</option>
+            <option value="07:00 PM - 08:00 PM">07:00 PM - 08:00 PM</option>
+            <option value="08:00 PM - 09:00 PM">08:00 PM - 09:00 PM</option>
+            <option value="09:00 PM - 10:00 PM">09:00 PM - 10:00 PM</option>
+            <option value="10:00 PM - 11:00 PM">10:00 PM - 11:00 PM</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Confirm</button>
+      </form>
+    </div>
+  </div>
+
+  
+  <div id="myBookingsModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <button id="closeMyBookingsModal" class="close-btn">&times;</button>
+      <h3>My Bookings</h3>
+
+      <div id="userBookingsList"></div>
+    </div>
+  </div>
+
+  
+  <section class="container my-5 py-4" id="contactSection">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card bg-dark text-light border border-secondary border-opacity-50 p-4 rounded-3 shadow">
+          <h3 class="text-center text-success fw-bold mb-3">Contact Us</h3>
+          <p class="text-secondary text-center small mb-4">Have questions or need help with booking? Send us a message!</p>
+          
+          <form id="contactForm">
+            <div class="mb-3">
+              <label class="form-label small text-secondary">Your Name</label>
+              <input type="text" class="form-control bg-transparent text-light border-secondary" id="contactName" required placeholder="Enter your name">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-secondary">Your Email</label>
+              <input type="email" class="form-control bg-transparent text-light border-secondary" id="contactEmail" required placeholder="Enter your email">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-secondary">Phone Number</label>
+              <input type="tel" class="form-control bg-transparent text-light border-secondary" id="contactPhone" required placeholder="Enter 10-digit phone number"
+                pattern="[0-9]{10}" minlength="10" maxlength="10">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-secondary">Message</label>
+              <textarea class="form-control bg-transparent text-light border-secondary" id="contactMessage" rows="3" required placeholder="Write your message here..."></textarea>
+            </div>
+
+            <button type="submit" id="contactSubmitBtn" class="btn btn-success w-100 fw-bold">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer class="text-center py-4 text-secondary border-top border-secondary border-opacity-25 mt-5">
+    <p class="mb-0 small">© 2026 SportzGrid. All rights reserved.</p>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="home.js"></script>
+</body>
+</html>
