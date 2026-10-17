@@ -1,0 +1,120 @@
+{
+  "users": [
+    {
+      "name": "nishad",
+      "email": "nishadbk901@gmail.com",
+      "phone": "8075537951",
+      "password": "Nishad@123",
+      "id": "Wq7UVdgi-Jc"
+    }
+  ],
+  "turfs": [
+    {
+      "id": "t1",
+      "name": "Calicut Kickoff Arena",
+      "sport": "Football",
+      "location": "Kozhikode",
+      "PerHour": 900,
+      "image": "soccer-turf.jpg",
+      "description": "Premium 7s football turf with synthetic grass, floodlights, and changing rooms."
+    },
+    {
+      "id": "t2",
+      "name": "Malabar Goal Turf",
+      "sport": "Football",
+      "location": "Malappuram",
+      "PerHour": 800,
+      "image": "football arena.jpg",
+      "description": "5-a-side football turf with FIFA standard artificial grass and parking facility."
+    },
+    {
+      "id": "t3",
+      "name": "Smash Badminton Academy",
+      "sport": "Badminton",
+      "location": "Kozhikode",
+      "PerHour": 400,
+      "image": "badminton 1.jpg",
+      "description": "Indoor wooden flooring court with anti-glare LED lighting and racket rentals."
+    },
+    {
+      "id": "t4",
+      "name": "Shuttle Pro Court",
+      "sport": "Badminton",
+      "location": "Malappuram",
+      "PerHour": 400,
+      "image": "badminton 2.jpg",
+      "description": "Synthetic mat indoor badminton court with coaching facilities and shower rooms."
+    },
+    {
+      "id": "t5",
+      "name": "cricket",
+      "sport": "Cricket",
+      "location": "Kozhikode",
+      "PerHour": 1000,
+      "image": "cricket1.jpg",
+      "description": "Fully enclosed box cricket arena with bowling machine and quality netting."
+    },
+    {
+      "id": "t6",
+      "name": "Champions Cricket Hub",
+      "sport": "Cricket",
+      "location": "Malappuram",
+      "PerHour": 950,
+      "image": "cricket 2.jpg",
+      "description": "Spacious turf pitch cricket arena suitable for 8-a-side matches with night floodlights."
+    }
+  ],
+  "bookings": [
+    {
+      "turfId": "t1",
+      "userEmail": "nishadbk901@gmail.com",
+      "userName": "nishad",
+      "turfName": "Calicut Kickoff Arena",
+      "date": "2026-10-09",
+      "time": "08:00 PM - 09:00 PM",
+      "amount": 900,
+      "id": "kl8-hZPD2Cc"
+    },
+    {
+      "turfId": "t1",
+      "userEmail": "nishadbk901@gmail.com",
+      "userName": "nishad",
+      "turfName": "Calicut Kickoff Arena",
+      "date": "2026-10-10",
+      "time": "08:00 PM - 09:00 PM",
+      "amount": 900,
+      "id": "NwySauYcOCk"
+    },
+    {
+      "turfId": "t1",
+      "userEmail": "nishadbk901@gmail.com",
+      "userName": "nishad",
+      "turfName": "Calicut Kickoff Arena",
+      "date": "2026-10-09",
+      "time": "06:00 PM - 07:00 PM",
+      "amount": 900,
+      "id": "CCk9ytjjano"
+    },
+    {
+      "turfId": "t1",
+      "userEmail": "nishadbk901@gmail.com",
+      "userName": "nishad",
+      "turfName": "Calicut Kickoff Arena",
+      "date": "2026-10-09",
+      "time": "10:00 PM - 11:00 PM",
+      "amount": 900,
+      "id": "7DhWR6SHzO4"
+    },
+    {
+      "turfId": "t1",
+      "userEmail": "nishadbk901@gmail.com",
+      "userName": "nishad",
+      "turfName": "Calicut Kickoff Arena",
+      "date": "2026-10-23",
+      "time": "07:00 PM - 08:00 PM",
+      "amount": 900,
+      "id": "DcibUZX7qYc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
