@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - SportzGrid</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light" style="background-color: #0b1120 !important;">
+
+  <div class="container py-4">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mb-4 pb-3 border-bottom border-secondary border-opacity-50 gap-2">
+      <h1 class="h3 fw-bold text-white m-0">Admin Dashboard</h1>
+      
+      <div class="d-flex align-items-center gap-2">
+        
+        <button id="viewBookingsBtn" class="btn btn-outline-success btn-sm px-3">View Bookings</button>
+        
+        <button id="adminLogoutBtn" class="btn btn-danger btn-sm px-3">Logout</button>
+      </div>
+    </div>
+
+    
+    <div id="bookingsSection" class="card bg-secondary bg-opacity-10 border border-success border-opacity-50 text-light p-3 mb-4 rounded-3" style="display: none;">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h4 class="h5 fw-bold text-success m-0">All Bookings Details</h4>
+        <button id="closeBookingsBtn" class="btn-close btn-close-white btn-sm"></button>
+      </div>
+      <div id="adminBookingsList"></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-lg-4">
+        <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-50 rounded-3 p-4">
+          <h3 class="h5 fw-bold text-success mb-3">Add New Turf</h3>
+          
+          <form id="addTurfForm">
+            <div class="mb-2">
+              <label class="form-label small fw-semibold text-secondary">Turf Name:</label>
+              <input type="text" id="turfName" class="form-control form-control-sm bg-dark text-light border-secondary" required>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small fw-semibold text-secondary">Sport:</label>
+              <input type="text" id="turfSport" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="football / cricket / badminton" required>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small fw-semibold text-secondary">Location:</label>
+              <input type="text" id="turfLocation" class="form-control form-control-sm bg-dark text-light border-secondary" required>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small fw-semibold text-secondary">Rate Per Hour (₹):</label>
+              <input type="number" id="turfRate" class="form-control form-control-sm bg-dark text-light border-secondary" required>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small fw-semibold text-secondary">Image Link:</label>
+              <input type="text" id="turfImage" class="form-control form-control-sm bg-dark text-light border-secondary" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small fw-semibold text-secondary">Description:</label>
+              <textarea id="turfDesc" class="form-control form-control-sm bg-dark text-light border-secondary" rows="3" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-success w-100 fw-bold">Add Turf</button>
+          </form>
+        </div>
+      </div>
+
+      
+      <div class="col-12 col-lg-8">
+        <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-50 rounded-3 p-4">
+          <h3 class="h5 fw-bold text-white mb-3">All Turfs List</h3>
+          
+          <div id="turfContainer" class="d-flex flex-column gap-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+
+</body>
+</html>
