@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turf Bokking - Sign up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="auth.js"></script>
+</head>
+<body>
+    
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center py-4">
+        <div class="row w-100 justify-content-center">
+            
+            <div class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-4">
+                
+                <div class="signup-card">
+                    <h2>Create Account</h2>
+                    <form id="signupForm">           
+                        <label>Full Name:</label>
+                        <input type="text" id="name" placeholder="enter your full name">
+                        <small id="nameError" class="error-msg"></small>
+                        <br><br>           
+                        
+                        <label>Email:</label>
+                        <input type="email" id="email">
+                        <small id="emailError" class="error-msg"></small>
+                        <br><br>           
+                        
+                        <label>Phone Number:</label>
+                        <input type="tel" id="phone">
+                        <small id="phoneError" class="error-msg"></small>
+                        <br><br>          
+                        
+                        <label>Password:</label>
+                        <input type="password" id="password">
+                        <small id="passwordError" class="error-msg"></small>
+                        <br><br>           
+                        
+                        <label>Confirm Password:</label>
+                        <input type="password" id="confirmPassword">
+                        <small id="confirmPasswordError" class="error-msg"></small>
+                        <br><br>
+                        
+                        <button type="submit" class="btn btn-success d-block mx-auto mt-3">Sign Up</button>
+                    </form>
+                    <div class="login-link">
+                        Already have an account? <a href="login.html">Login here</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
